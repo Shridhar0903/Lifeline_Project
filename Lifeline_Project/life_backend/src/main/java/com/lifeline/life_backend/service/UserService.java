@@ -2,9 +2,10 @@ package com.lifeline.life_backend.service;
 
 import com.lifeline.life_backend.entity.User;
 import com.lifeline.life_backend.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class UserService {
 
     private UserRepository userRepository;
