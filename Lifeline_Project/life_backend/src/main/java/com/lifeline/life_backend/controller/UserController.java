@@ -36,4 +36,26 @@ public class UserController {
         return userService.getUserById(id);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<?>loginUser(@RequestBody com.lifeline.life_backend.dto.LoginRequest loginRequest){
+        User user = userService.loginUser(loginRequest.getEmail(),loginRequest.getPassword());
+
+        if (user != null) {
+            return ResponseEntity.ok(user); // 200 OK + User Data
+        } else {
+            return ResponseEntity.status(401).body("Invalid Email or Password!"); // 401 Unauthorized
+        }
+    }
+
+    // Availability Status बदलण्यासाठी API
+    @PutMapping("/{id}/status")
+    public ResponseEntity<?> updateStatus(@PathVariable Long id, @RequestParam boolean available) {
+        User updatedUser = userService.updateAvailability(id, available);
+        if (updatedUser != null) {
+            return ResponseEntity.ok("Status updated successfully to: " + available);
+        } else {
+            return ResponseEntity.status(404).body("User not found!");
+        }
+    }
+
 }

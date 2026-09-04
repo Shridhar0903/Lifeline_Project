@@ -39,6 +39,17 @@ public class UserService {
         return null;
 
     }
+    // Availability Update करणे
+    public User updateAvailability(Long userId, boolean isAvailable) {
+        User user = userRepository.findById(userId).orElse(null);
+        if (user != null) {
+            user.setAvailable(isAvailable); // जर Entity मध्ये available असेल तर setAvailable लिहा
+            return userRepository.save(user);
+        }
+        return null;
+    }
+
+
 
 
 }
