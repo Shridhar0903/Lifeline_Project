@@ -2,6 +2,7 @@ package com.lifeline.life_backend.controller;
 
 import com.lifeline.life_backend.entity.User;
 import com.lifeline.life_backend.service.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class UserController {
 
     // Post api = creating new user
     @PostMapping("/register")
-    public ResponseEntity<User>registerUser(@RequestBody User user){
+    public ResponseEntity<User>registerUser(@Valid @RequestBody User user){
         User savedUser  = userService.registerUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
 
