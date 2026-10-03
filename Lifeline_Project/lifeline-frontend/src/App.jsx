@@ -2,6 +2,9 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
+import QuickServicesSection from './components/QuickServicesSection';
+import HowItWorksSection from './components/HowItWorksSection';
+import Footer from './components/Footer';
 
 const App = () => {
   return (
@@ -9,6 +12,9 @@ const App = () => {
       <Navbar/>
       <HeroSection/>
       <AboutSection/>
+      <QuickServicesSection/>
+      <HowItWorksSection/>
+      <Footer/>
      
     </div>
   );
