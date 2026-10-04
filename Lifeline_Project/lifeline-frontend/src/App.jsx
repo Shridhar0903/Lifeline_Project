@@ -1,23 +1,40 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import QuickServicesSection from './components/QuickServicesSection';
-import HowItWorksSection from './components/HowItWorksSection';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Register from './pages/Register';
 
-const App = () => {
+// १. मदतनीस फंक्शन (Layout)
+const Layout = () => {
+  const location = useLocation();
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/register'; //The navbar will not be visible during login.
+
   return (
-    <div className="min-h-screen bg-gray-50 ">
-      <Navbar/>
-      <HeroSection/>
-      <AboutSection/>
-      <QuickServicesSection/>
-      <HowItWorksSection/>
-      <Footer/>
-     
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
+      {!isAuthPage && <Navbar />}
+
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </main>
+
+      {!isAuthPage && <Footer />}
     </div>
   );
 };
 
-export default App;
+// २. मुख्य फंक्शन (App - फाईलच्या नावाप्रमाणे)
+const App = () => {
+  return (
+    <Router>
+      <Layout />
+    </Router>
+  );
+};
+
+export default App; // <-- शेवटी आपण App लाच बाहेर पाठवतो (Export करतो)

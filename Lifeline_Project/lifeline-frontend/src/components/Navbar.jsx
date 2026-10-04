@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logoImg from '../assets/lifeline-temp-logo.jpg'
 
 const Navbar = () => {
@@ -22,10 +23,10 @@ const Navbar = () => {
              {/* ================= 2. Center  ================= */}
 
              <div className='hidden md:flex items-center gap-8 font-medium text-gray-700'>
-              <a href='#home'
+              <Link to='/'
                 className='hover:text-red-600 transition duration-200 cursor-pointer'>
                 Home
-              </a>
+              </Link>
 
               <a href='#find-donors'
                 className='hover:text-red-600 transition duration-200 cursor-pointer'>
@@ -47,13 +48,19 @@ const Navbar = () => {
 
             {/* ================= 2. Right side actioon   ================= */}
             <div className='flex items-center gap-3'>
-              <button className='text-gray-700 px-4 py-3 rounded-xl font-semibold hover:text-red-600 hover:bg-red-50 transition duration-200'>
-                Login
-              </button>
+              {/* Login Button */}
+              <Link to="/login">
+                <button className='text-gray-700 px-4 py-3 rounded-xl font-semibold hover:text-red-600 hover:bg-red-50 transition duration-200'>
+                  Login
+                </button>
+              </Link>
 
-               <button className='bg-red-600 text-white px-5 py-2 rounded-xl font-semibold hover:bg-red-700 shadow-md hover:shadow-lg transition duration-200'>
-                Register as Donor
-              </button>
+              {/* Register Button */}
+              <Link to="/register">
+                <button className='bg-red-600 text-white px-5 py-2 rounded-xl font-semibold hover:bg-red-700 shadow-md hover:shadow-lg transition duration-200'>
+                  Register as Donor
+                </button>
+              </Link>
             </div>
         </div>
     </nav>

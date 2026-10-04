@@ -8,7 +8,7 @@ const HeroSection = () => {
   return (
    <section className='relative bg-gradient-to-b from-red-50 to-white py-12 md:py-16 px-1 overflow-hidden'>
 
-     <div className='max-w-8xl mx-auto px-25'>
+     <div className='max-w-8xl mx-auto px-30'>
       {/* MAIN HERO CONTENT (2-COLUMN GRID) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
           
@@ -61,7 +61,7 @@ const HeroSection = () => {
             <img 
               src={heroImg} 
               alt="Lifeline Blood Donation Banner" 
-              className="w-full max-w lg:max-w-xl rounded-2xl object-cover drop-shadow-2xl  transition-transform duration-300"
+              className="w-full max-w lg:max-w-xl rounded-2xl object-cover drop-shadow-2xl  transition-transform duration-300 ml-10"
             />
           </div>
 
