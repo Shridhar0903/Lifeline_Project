@@ -1,14 +1,34 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitted Email:", email);
-    console.log("Submitted Password:", password);
+
+    try {
+      const response = await fetch('http://localhost:8080/api/users/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      if (response.ok) {
+        const userData = await response.json();
+        alert(`Welcome back, ${userData.fullName}! Login Successful.`);
+        console.log('Logged in user:', userData);
+        navigate('/'); // Home Page वर Redirect करा
+      } else {
+        const errorMsg = await response.text();
+        alert('Login Failed: ' + errorMsg);
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      alert('Backend server सुरू नाहीये!');
+    }
   };
 
   return (
@@ -26,7 +46,7 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:outline-none"
-              placeholder="name@example.com"
+              placeholder="rahul@example.com"
             />
           </div>
 
@@ -53,7 +73,7 @@ const Login = () => {
         <p className="text-center text-sm text-gray-600 mt-6">
           Don't have an account?{' '}
           <Link to="/register" className="text-red-600 font-semibold hover:underline">
-            Create Account
+            Register here
           </Link>
         </p>
       </div>

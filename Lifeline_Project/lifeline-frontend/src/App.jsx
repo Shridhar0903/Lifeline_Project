@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import FindDonors from './pages/FindDonors'; 
 
 // १. मदतनीस फंक्शन (Layout)
 const Layout = () => {
@@ -20,6 +21,7 @@ const Layout = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/find-donors" element={<FindDonors />} /> 
         </Routes>
       </main>
 

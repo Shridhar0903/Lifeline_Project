@@ -28,10 +28,10 @@ const Navbar = () => {
                 Home
               </Link>
 
-              <a href='#find-donors'
+              <Link to='/find-donors'
                 className='hover:text-red-600 transition duration-200 cursor-pointer'>
                 Find Donors
-              </a>
+              </Link>
 
               <a href='#request-blood'
                 className="hover:text-red-600 transition duration-200 cursor-pointer">

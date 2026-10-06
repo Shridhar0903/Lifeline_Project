@@ -71,7 +71,7 @@ const Footer = () => {
             <h4 className="text-base font-bold text-white uppercase tracking-wider text-xs">Quick Links</h4>
             <ul className="space-y-2.5 text-sm text-gray-400">
               <li><a href="/" className="hover:text-red-500 transition-colors">Home</a></li>
-              <li><a href="/find-donor" className="hover:text-red-500 transition-colors">Find Blood Donor</a></li>
+              <li><a href="/find-donors" className="hover:text-red-500 transition-colors">Find Blood Donor</a></li>
               <li><a href="/request-blood" className="hover:text-red-500 transition-colors">Request Blood</a></li>
               <li><a href="/register-donor" className="hover:text-red-500 transition-colors">Become Donor</a></li>
             </ul>
