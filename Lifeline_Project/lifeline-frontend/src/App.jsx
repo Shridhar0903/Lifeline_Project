@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import FindDonors from './pages/FindDonors'; 
+import RequestBlood from './pages/RequestBlood';
 
 // १. मदतनीस फंक्शन (Layout)
 const Layout = () => {
@@ -22,6 +23,7 @@ const Layout = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/find-donors" element={<FindDonors />} /> 
+          <Route path="/request-blood" element={<RequestBlood />} />
         </Routes>
       </main>
 

@@ -33,7 +33,7 @@ const Navbar = () => {
                 Find Donors
               </Link>
 
-              <a href='#request-blood'
+              <a href='/request-blood'
                 className="hover:text-red-600 transition duration-200 cursor-pointer">
                 Request Blood
               </a>
